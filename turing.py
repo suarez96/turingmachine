@@ -39,24 +39,24 @@ file = open("2comp.txt", "r")
 lines = file.readlines()
 
 #split all of
-tranitionList = lines[3].split(';')
-tranitionList.remove('\n')
+transitionList = lines[3].split(';')
+transitionList.remove('\n')
 
 #lines[5] "the sixth line" contains the start state, line[7] contains our accept state
 #format for TM is (start state, head initial position, input string, accept state)
 tm = TM(int(lines[5]), 0, str(input("Enter the input string: ")+ " "), int(lines[7]))
 
 #for every transition
-for i in range(len(tranitionList)):
+for i in range(len(transitionList)):
     #remove all the opening and closing parentheses from all the instructions
-    tranitionList[i] = tranitionList[i][1:-1]
+    transitionList[i] = transitionList[i][1:-1]
     #split individual transition into 5 elements
-    tranitionList[i] = tranitionList[i].split(',')
+    transitionList[i] = transitionList[i].split(',')
 
 #make a 2nd list of transitions to append the actual transitions
 transitions = list()
 
-for i in tranitionList:
+for i in transitionList:
     (ins, outs) = ((int(i[0]), i[1]), (int(i[2]), i[3], i[4]))
     transitions.append((ins, outs))
 

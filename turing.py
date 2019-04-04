@@ -38,7 +38,7 @@ file = open("2comp.txt", "r")
 #read all lines into a list called lines
 lines = file.readlines()
 
-#split all of
+#split all of transitions into separate elements
 transitionList = lines[3].split(';')
 transitionList.remove('\n')
 
@@ -46,7 +46,7 @@ transitionList.remove('\n')
 #format for TM is (start state, head initial position, input string, accept state)
 tm = TM(int(lines[5]), 0, str(input("Enter the input string: ")+ " "), int(lines[7]))
 
-#for every transition
+#for every transition:
 for i in range(len(transitionList)):
     #remove all the opening and closing parentheses from all the instructions
     transitionList[i] = transitionList[i][1:-1]
@@ -63,13 +63,13 @@ for i in transitionList:
 #iterate through the turing tape, starting at initial state and initial head position
 while tm.accept == False and tm.reject == False:
     #input just to pause between transitions, completely optional
-    input()
+    # input()
     found = False
     for tr in transitions:
         if (tm.currentState, str(tm.tape[tm.head])) == tr[0]:
             tm.goto(tr[1][0], tr[1][1], tr[1][2])
             found = True
-            break
+            # break #also unnecessary unless we want to see one transition at a time
     if not found:
         tm.reject = True
         print("rejected")

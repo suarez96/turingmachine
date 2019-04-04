@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66a4ed6d-32ea-4707-9985-d1c1af9335ff" name="Default Changelist" comment="" />
+    <list default="true" id="66a4ed6d-32ea-4707-9985-d1c1af9335ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/turing.py" beforeDir="false" afterPath="$PROJECT_DIR$/turing.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/turing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="119">
+              <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -135,6 +137,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.496" visible="true" weight="0.21150033" />
       <window_info id="Structure" order="1" sideWeight="0.502" side_tool="true" weight="0.21150033" />
@@ -220,8 +223,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/turing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="119">
+          <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
         </state>
       </provider>
     </entry>

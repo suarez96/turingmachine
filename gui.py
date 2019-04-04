@@ -2,6 +2,8 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
+# whenever you want to reference a function or anything from the turingforguifile, just use tm.<whateverFunction>
+import turingforgui as tm
 
 window = Tk()
 w = Label(window, text="A Turing Machine", font=("Courier", 24), bg="#d6f9e1", fg="green")
@@ -16,10 +18,16 @@ filename = PhotoImage(file = "BENNY.gif")
 image = w.create_image(120, 110, image=filename)
 
 w.pack()
+
 def run():
     os.system('turingmachine.py')
 
 run_btn = Button(window, text="Run", bg="#70f23c", fg="black",command=run)
+
+# this will run until turing machine is done executing, then will open gui in background
+t = tm.TM("2comp.txt", str(input("Enter the input string: ")+ " "))
+while(input()!= 'x' and t.accept is False and t.reject is False):
+    t.runTM()
 
 def openfile():
     return filedialog.askopenfilename()

@@ -7,6 +7,6 @@ Turing Machine made in python:
   transitions: format is (current state, input, next state, character to write to tape, direction to move on tape) end line with ;<br /> 
   (cur, input, next, char, dir);(cur, input, next, char, dir);(cur, input, next, char, dir);<br />
   start:  <br />
-  <start state number>  <br />
+  start state number <br />
   accept:   <br />
-  <accept state number><br />
+  accept state number <br />

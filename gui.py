@@ -16,6 +16,7 @@ filename = PhotoImage(file = "BENNY.gif")
 image = w.create_image(120, 110, image=filename)
 
 w.pack()
+
 def run():
     os.system('turingmachine.py')
 
@@ -25,6 +26,12 @@ def openfile():
     return filedialog.askopenfilename()
 
 loadbutton = ttk.Button(window, text="Load", command=openfile) 
+v = StringVar()
+e = Entry(window, textvariable=v)
+e.pack()
+
+v.set("Enter your string:")
+s = v.get()
 exit_button = Button(window, text='Quit', bg="#ffbfaf", command=window.destroy)
 loadbutton.pack()
 run_btn.pack()

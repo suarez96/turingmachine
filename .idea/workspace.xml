@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="66a4ed6d-32ea-4707-9985-d1c1af9335ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/turingforgui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="-510">
               <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
             </state>
           </provider>
@@ -37,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -62,8 +61,8 @@
       <find>canvas</find>
       <find>print</find>
       <find>run</find>
-      <find>input</find>
       <find>openfile</find>
+      <find>input</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1554488281190</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="more gui stuff">
+      <created>1554493161467</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554493161467</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -264,7 +270,8 @@
     <MESSAGE value="typos" />
     <MESSAGE value="added 2nd turing machine python file used for gui" />
     <MESSAGE value="fixed gui, made functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed gui, made functional" />
+    <MESSAGE value="more gui stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="more gui stuff" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Downloads/fixmat.py" />
@@ -327,15 +334,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/turingforgui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="-510">
           <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

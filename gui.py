@@ -1,4 +1,3 @@
-
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
@@ -6,86 +5,51 @@ from tkinter import filedialog
 import turingforgui as tmclass
 
 window = Tk()
-w = Label(window, text="A Turing Machine", font=("Courier", 24), bg="#d6f9e1", fg="green")
 window.title("Python Turing Machine Simulator")
+
+wlabel = Label(window, text="A Turing Machine\npress/hold enter key to advance", font=("Courier", 24), bg="#d6f9e1", fg="green")
+wlabel.pack()
+
+# load gui units
+w = Canvas(window, width=400, height=220)
 w.pack()
+loadbutton = ttk.Button(window, text="Load", command=openfile)
+exit_button = Button(window, text='Quit', bg="#ffbfaf", command=window.destroy)
+loadbutton.pack()
+
+
+def run(f = None):
+    tapeLabel.config(text=t.runTM())
+
+
+window.bind('<Return>', run)
+
+run_btn = Button(window, text="Run", bg="#70f23c", fg="black", command=run)
+run_btn.pack()
+
+exit_button.pack()
+
+
 window.geometry('800x10000')
 window.configure(background='#d6f9e1')
 window.attributes('-fullscreen', True)
 
-w = Canvas(window, width=720, height=360)
-filename = PhotoImage(file = "BENNY.gif")
-image = w.create_image(120, 110, image=filename)
-
-w.pack()
-
-def run():
-    os.system('turingmachine.py')
-
-run_btn = Button(window, text="Run", bg="#70f23c", fg="black",command=run)
-
-# this will run until turing machine is done executing, then will open gui in background
-t = tmclass.TM("2comp.txt", str(input("Enter the input string: ")+ " "))
-
-while(input()!= 'x' and t.accept is False and t.reject is False):
-    t.runTM()
+t = tmclass.TM("samestring.txt", str(input("input a string: ") + " "))
+tapeLabel = Label(window, text=t.s, font=("Courier", 18), bg="#d6f9e1")
+tapeLabel.pack()
 
 def openfile():
+    e = Entry(window)
+    e.pack()
+    e.delete(0, END)
+    e.insert(0, "Enter an input string (remember to load an input file too!)")
+    t.setfile(filedialog.askopenfilename(), e.get())
     return filedialog.askopenfilename()
+filename = PhotoImage(file="BENNY.gif")
+image = w.create_image(0, 0, image=filename, anchor='nw')
 
-loadbutton = ttk.Button(window, text="Load", command=openfile) 
-exit_button = Button(window, text='Quit', bg="#ffbfaf", command=window.destroy)
-loadbutton.pack()
-run_btn.pack()
-exit_button.pack()
 
-for i in range(len(t.tapeString)):
-    x = i + 1
-    w.create_line('{0}c 7c {0}c 7.6c'.format(x+2), width=1, offset = '10c, 10c', fill = "#00f")
-    w.create_text('{}.5c 7.5c'.format(x+2), text=t.tapeString[i], anchor='sw', fill = "#00f")
-    w.pack()
+tapeLabel.pack()
 
+# start running
 window.mainloop()
-
-'''
-ruler code hehehe
-from tkinter import *
-from tkinter import ttk
-
-class CanvasRulerDemo(ttk.Frame):
-
-    def __init__(self, isapp=True, name='canvasrulerdemo'):
-        ttk.Frame.__init__(self, name=name)
-        self.pack(expand=Y, fill=BOTH)
-        self.master.title('Canvas Ruler Demo')
-        self.isapp = isapp
-        self._create_demo_panel()
-
-    def _create_demo_panel(self):
-        demoPanel = Frame(self)
-        demoPanel.pack(side=TOP)
-        self.canvas = Canvas(width='20c', height='20c')
-        self.canvas.pack(in_=demoPanel, side=TOP, fill=X)
-
-        self._draw_ruler()
-
-
-    def _draw_ruler(self):
-        for i in range(15): #will be length of char array
-            x = i + 1
-            self.canvas.create_line('{0}c 1c {0}c 0.6c'.format(x), width=1)
-            self.canvas.create_text('{}.5c 1c'.format(x), text='x', anchor='sw')
-
-        # add tab symbol to 'well'
-        x = self.canvas.winfo_pixels('15.55c')
-        y = self.canvas.winfo_pixels('1.2c')
-        self.canvas.addtag_withtag('well', self._draw_tab(x, y))
-
-    def _draw_tab(self, x, y):
-        # # create a filled triangle to represent a tab stop
-        size = self.canvas.winfo_fpixels('.2c')
-        tab = self.canvas.create_polygon(x, y, x + size, y + size, x - size, y + size)
-        return tab
-
-if __name__ == '__main__':
-    CanvasRulerDemo().mainloop()'''

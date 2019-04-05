@@ -1,15 +1,27 @@
 class TM:
     tape = list()
 
-    def __init__(self, f, t):
+    def __init__(self, f=None, t=None):
+        self.accept = False
+        self.reject = False
+        self.head = 0
+
+        if f is None:
+            self.file = None
+            self.tapeString = None
+            self.transitions = None
+            self.transitionList = None
+        else:
+            self.setfile(f, t)
+
+
+    def setfile(self, f, t):
         # read file
         self.file = open(f, "r")
         lines = self.file.readlines()
         # make states
         self.currentState = int(lines[5])
         self.acceptState = int(lines[7])
-        self.accept = False
-        self.reject = False
         # make transitions
         self.transitions = list()
         self.transitionList = lines[3].split(';')
@@ -22,36 +34,40 @@ class TM:
             (ins, outs) = ((int(i[0]), i[1]), (int(i[2]), i[3], i[4]))
             self.transitions.append((ins, outs))
         # initial tape head position and tape input
-        self.head = 0
         self.tapeString = t
         for i in self.tapeString:
             self.tape.append(i)
-        print("initial state: {n}, initial input {i}, head in: {h}".format(n = self.currentState, i = self.tape[self.head], h = self.head))
+        self.s = "initial state: {n}, initial input {i}, head in: {h}".format(n = self.currentState, i = self.tape[self.head], h = self.head)
+        print(self.s)
 
     def goto(self, nextState, write, move):
+        self.s = ''
         self.currentState = nextState
         if self.acceptState == self.currentState:
-            print("accepted, final configuration:")
-            print(self.tape)
             self.accept = True
-            return
+            self.s = str("accepted, final configuration:") + str(self.tape)
+            return self.s
+
         if write != '':
             self.tape[self.head] = write
-            print("writing {w} over position: {h}".format(w = write, h = self.head))
+            self.s += str("writing {w} over position: {h}".format(w = write, h = self.head))
 
         self.head = self.head + 1 if move == 'R' else self.head - 1
-        print(self.tape)
-        print("new state: {n}, new input '{i}', head moved {m} to : {h}".format(n = self.currentState, i = self.tape[self.head], m = move, h = self.head))
+        self.s += '\n' + str(self.tape)
+        self.s += '\n' + "new state: {n}, new input '{i}', head moved {m} to : {h}".format(n = self.currentState, i = self.tape[self.head], m = move, h = self.head)
+        return self.s
 
     def runTM(self):
         if self.accept is False and self.reject is False:
-            found = False
             for tr in self.transitions:
                 if (self.currentState, str(self.tape[self.head])) == tr[0]:
-                    self.goto(tr[1][0], tr[1][1], tr[1][2])
-                    found = True
-                    break
-            if not found:
-                self.reject = True
-                print("rejected")
+                    return self.goto(tr[1][0], tr[1][1], tr[1][2])
 
+            self.reject = True
+            return str("rejected")
+
+#
+# t = TM("samestring.txt", str(input("Enter the input string: ") + " "))
+#
+# while (input() != 'x'):
+#     print(t.runTM())

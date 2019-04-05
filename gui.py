@@ -13,6 +13,11 @@ wlabel.pack()
 # load gui units
 w = Canvas(window, width=400, height=220)
 w.pack()
+
+def openfile():
+    t.setfile(filedialog.askopenfilename(), e.get())
+    return filedialog.askopenfilename()
+
 loadbutton = ttk.Button(window, text="Load", command=openfile)
 exit_button = Button(window, text='Quit', bg="#ffbfaf", command=window.destroy)
 loadbutton.pack()
@@ -38,13 +43,12 @@ t = tmclass.TM("samestring.txt", str(input("input a string: ") + " "))
 tapeLabel = Label(window, text=t.s, font=("Courier", 18), bg="#d6f9e1")
 tapeLabel.pack()
 
-def openfile():
-    e = Entry(window)
-    e.pack()
-    e.delete(0, END)
-    e.insert(0, "Enter an input string (remember to load an input file too!)")
-    t.setfile(filedialog.askopenfilename(), e.get())
-    return filedialog.askopenfilename()
+e = Entry(window)
+e.pack()
+e.delete(0, END)
+e.insert(0, "Enter an input string (remember to load an input file too!)")
+
+
 filename = PhotoImage(file="BENNY.gif")
 image = w.create_image(0, 0, image=filename, anchor='nw')
 

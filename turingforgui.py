@@ -5,17 +5,14 @@ class TM:
         self.accept = False
         self.reject = False
         self.head = 0
-
-        if f is None:
-            self.file = None
-            self.tapeString = None
-            self.transitions = None
-            self.transitionList = None
-        else:
-            self.setfile(f, t)
-
+        self.setfile(f, t)
 
     def setfile(self, f, t):
+        if self.accept is True or self.accept is True:
+            self.accept = False
+            self.reject = False
+            self.head = 0
+
         # read file
         self.file = open(f, "r")
         lines = self.file.readlines()
@@ -65,9 +62,3 @@ class TM:
 
             self.reject = True
             return str("rejected")
-
-#
-# t = TM("samestring.txt", str(input("Enter the input string: ") + " "))
-#
-# while (input() != 'x'):
-#     print(t.runTM())
